@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NITE-TRACKER | Katalog igara</title>
+  <meta name="description" content="Katalog drustvenih igara u prodavnici NITE-TRACKER. Pretraga, sortiranje i filtriranje po grupama.">
+  <link rel="icon" type="image/png" href="assets/img/logo-mark.png">
+  <link href="assets/vendor/fonts/fonts.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <script src="assets/vendor/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jspdf.umd.min.js"></script>
+  <script src="assets/vendor/jspdf.plugin.autotable.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/font.js"></script>
+  <script src="assets/js/catalog.js"></script>
+</head>
+
+<body data-title-key="doc.title.catalog">
+
+  <a href="#main" class="skip-link" data-i18n="a11y.skip">Preskoci na sadrzaj</a>
+
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg" id="mainNav" aria-label="Glavni meni">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="assets/img/logo-mark.png" alt="" class="brand-mark">
+          <span class="brand-text">
+            <span class="brand-name">NITE-TRACKER</span>
+            <span class="brand-sub">Boardgames Entertainment</span>
+          </span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                aria-controls="navMenu" aria-expanded="false" aria-label="Otvori meni">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav mx-lg-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html" data-i18n="nav.home">Pocetna</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="galerija.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span data-i18n="nav.gallery">Galerija</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="galerija.html#prodavnica" data-i18n="nav.gallery.store">Slike prodavnice</a></li>
+                <li><a class="dropdown-item" href="galerija.html#igre" data-i18n="nav.gallery.games">Fotografije igara</a></li>
+                <li><a class="dropdown-item" href="galerija.html#video" data-i18n="nav.gallery.video">Video galerija</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" aria-current="page" href="katalog.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span data-i18n="nav.catalog">Katalog igara</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="katalog.html" data-i18n="nav.catalog.all">Sve igre</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="katalog.html?grupa=porodicne" data-i18n="nav.catalog.family">Porodicne</a></li>
+                <li><a class="dropdown-item" href="katalog.html?grupa=strateske" data-i18n="nav.catalog.strategy">Strateske</a></li>
+                <li><a class="dropdown-item" href="katalog.html?grupa=zabavne" data-i18n="nav.catalog.party">Zabavne</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="nalog.html" data-i18n="nav.account">Moj nalog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="o-nama.html" data-i18n="nav.about">O nama</a>
+            </li>
+          </ul>
+
+          <div class="nav-actions">
+            <form class="search-form" id="searchForm" role="search">
+              <i class="bi bi-search"></i>
+              <input type="search" id="searchInput" class="search-input" data-i18n-ph="search.placeholder" placeholder="Pretrazi igre..." aria-label="Pretraga igara">
+            </form>
+
+            <div class="lang-switch" id="langSwitch" role="group" aria-label="Izbor jezika">
+              <button type="button" class="lang-btn" data-lang="sr">SR</button>
+              <button type="button" class="lang-btn" data-lang="en">EN</button>
+            </div>
+
+            <a href="nalog.html" class="cart-link" aria-label="Korpa">
+              <i class="bi bi-bag"></i>
+              <span class="cart-count" id="cartCount">0</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <nav class="breadcrumb-bar" aria-label="Putanja">
+      <div class="container">
+        <ol class="breadcrumb mb-0" id="breadcrumb"></ol>
+      </div>
+    </nav>
+
+    <section class="section section-catalog">
+      <div class="container">
+        <div class="catalog-head">
+          <span class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="nav.catalog">Katalog igara</span></span>
+          <h1 class="section-title" id="catalogTitle" data-i18n="catalog.all">Sve igre</h1>
+          <p class="section-note" id="catalogSub" data-i18n="catalog.sub">Pregledaj, sortiraj i pretrazi celu ponudu drustvenih igara.</p>
+        </div>
+
+        <div class="catalog-toolbar">
+          <div class="tool tool-search">
+            <i class="bi bi-search"></i>
+            <input type="search" id="catalogSearch" class="tool-input" data-i18n-ph="search.placeholder" placeholder="Pretrazi igre..." data-i18n-aria="search.aria" aria-label="Pretraga kataloga">
+          </div>
+
+          <div class="tool tool-select">
+            <label for="filterGroup" data-i18n="filter.label">Grupa</label>
+            <select id="filterGroup" class="tool-select">
+              <option value="all" data-i18n="filter.all">Sve grupe</option>
+              <option value="porodicne" data-i18n="nav.catalog.family">Porodicne</option>
+              <option value="strateske" data-i18n="nav.catalog.strategy">Strateske</option>
+              <option value="zabavne" data-i18n="nav.catalog.party">Zabavne</option>
+            </select>
+          </div>
+
+          <div class="tool tool-select">
+            <label for="sortBy" data-i18n="sort.label">Sortiraj</label>
+            <select id="sortBy" class="tool-select">
+              <option value="az" data-i18n="sort.az">Naziv (A-S)</option>
+              <option value="za" data-i18n="sort.za">Naziv (S-A)</option>
+              <option value="rating" data-i18n="sort.rating">Ocena (najbolje)</option>
+              <option value="priceAsc" data-i18n="sort.priceAsc">Cena (rastuce)</option>
+              <option value="priceDesc" data-i18n="sort.priceDesc">Cena (opadajuce)</option>
+              <option value="ratingDown" data-i18n="sort.ratingDown">Ocena (najgore)</option>
+            </select>
+            <select id="priceRange" class="tool-select">
+              <option value="all">Sve cene</option>
+              <option value="0-4000">do 4.000</option>
+              <option value="4000-7000">4.000–7.000</option>
+              <option value="7000-99999">preko 7.000</option>
+            </select>
+          </div>
+
+          <button class="btn btn-ghost pdf-btn" id="downloadCatalog" type="button">
+            <i class="bi bi-filetype-pdf"></i> <span data-i18n="catalog.pdf">Preuzmi katalog</span>
+          </button>
+        </div>
+
+        <div class="row g-3 g-md-4" id="catalogGrid"></div>
+        <p class="catalog-empty" id="catalogEmpty" data-i18n="catalog.empty" hidden>Nema igara koje odgovaraju pretrazi.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-12 col-lg-4 footer-brand">
+          <img src="assets/img/logo.png" alt="NITE-TRACKER" class="footer-logo">
+          <p class="footer-tagline" data-i18n="footer.tagline">Prodavnica drustvenih igara za one koji najradije igraju do kasno u noc.</p>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h3 class="footer-h" data-i18n="footer.quick">Brzi linkovi</h3>
+          <ul class="footer-links">
+            <li><a href="index.html" data-i18n="nav.home">Pocetna</a></li>
+            <li><a href="katalog.html" data-i18n="nav.catalog">Katalog igara</a></li>
+            <li><a href="galerija.html" data-i18n="nav.gallery">Galerija</a></li>
+            <li><a href="o-nama.html" data-i18n="nav.about">O nama</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h3 class="footer-h" data-i18n="footer.hours">Radno vreme</h3>
+          <p class="footer-line" data-i18n="footer.hours.val">Pon-Sub: 10-22h<br>Ned: 14-20h</p>
+        </div>
+        <div class="col-12 col-lg-3">
+          <h3 class="footer-h" data-i18n="footer.contact">Kontakt</h3>
+          <p class="footer-line">
+            <i class="bi bi-geo-alt"></i> <span data-i18n="footer.addr">Bulevar kralja Aleksandra 73, Beograd</span><br>
+            <i class="bi bi-telephone"></i> +381 11 123 456<br>
+            <i class="bi bi-envelope"></i> info@nite-tracker.rs
+          </p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="footer-rule">
+      <p class="footer-copy" data-i18n="footer.copyright">Copyright 2026, Nikola Zivkovic i Teodora Joksimovic, Odsek za softversko inzenjerstvo Elektrotehnickog fakulteta Univerziteta u Beogradu</p>
+    </div>
+  </footer>
+
+</body>
+</html>

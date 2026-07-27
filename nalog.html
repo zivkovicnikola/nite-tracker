@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NITE-TRACKER | Moj nalog</title>
+  <meta name="description" content="Korpa i istorija porudzbina u prodavnici NITE-TRACKER.">
+  <link rel="icon" type="image/png" href="assets/img/logo-mark.png">
+  <link href="assets/vendor/fonts/fonts.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <script src="assets/vendor/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/nalog.js"></script>
+</head>
+
+<body data-title-key="doc.title.account">
+
+  <a href="#main" class="skip-link" data-i18n="a11y.skip">Preskoci na sadrzaj</a>
+
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg" id="mainNav" aria-label="Glavni meni">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="assets/img/logo-mark.png" alt="" class="brand-mark">
+          <span class="brand-text">
+            <span class="brand-name">NITE-TRACKER</span>
+            <span class="brand-sub">Boardgames Entertainment</span>
+          </span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                aria-controls="navMenu" aria-expanded="false" aria-label="Otvori meni">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav mx-lg-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html" data-i18n="nav.home">Pocetna</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="galerija.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span data-i18n="nav.gallery">Galerija</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="galerija.html#prodavnica" data-i18n="nav.gallery.store">Slike prodavnice</a></li>
+                <li><a class="dropdown-item" href="galerija.html#igre" data-i18n="nav.gallery.games">Fotografije igara</a></li>
+                <li><a class="dropdown-item" href="galerija.html#video" data-i18n="nav.gallery.video">Video galerija</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="katalog.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span data-i18n="nav.catalog">Katalog igara</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="katalog.html" data-i18n="nav.catalog.all">Sve igre</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="katalog.html?grupa=porodicne" data-i18n="nav.catalog.family">Porodicne</a></li>
+                <li><a class="dropdown-item" href="katalog.html?grupa=strateske" data-i18n="nav.catalog.strategy">Strateske</a></li>
+                <li><a class="dropdown-item" href="katalog.html?grupa=zabavne" data-i18n="nav.catalog.party">Zabavne</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="nalog.html" data-i18n="nav.account">Moj nalog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="o-nama.html" data-i18n="nav.about">O nama</a>
+            </li>
+          </ul>
+
+          <div class="nav-actions">
+            <form class="search-form" id="searchForm" role="search">
+              <i class="bi bi-search"></i>
+              <input type="search" id="searchInput" class="search-input" data-i18n-ph="search.placeholder" placeholder="Pretrazi igre..." aria-label="Pretraga igara">
+            </form>
+
+            <div class="lang-switch" id="langSwitch" role="group" aria-label="Izbor jezika">
+              <button type="button" class="lang-btn" data-lang="sr">SR</button>
+              <button type="button" class="lang-btn" data-lang="en">EN</button>
+            </div>
+
+            <a href="nalog.html" class="cart-link" aria-label="Korpa">
+              <i class="bi bi-bag"></i>
+              <span class="cart-count" id="cartCount">0</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <nav class="breadcrumb-bar" aria-label="Putanja">
+      <div class="container">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="index.html" data-i18n="bc.home">Pocetna</a></li>
+          <li class="breadcrumb-item active" aria-current="page" data-i18n="nav.account">Moj nalog</li>
+        </ol>
+      </div>
+    </nav>
+
+    <section class="section section-account">
+      <div class="container">
+        <div class="catalog-head">
+          <span class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="nav.account">Moj nalog</span></span>
+          <h1 class="section-title" data-i18n="account.cart">Korpa</h1>
+          <p class="section-note" data-i18n="account.cartSub">Pregled izabranih igara, kolicina i ukupne cene.</p>
+        </div>
+
+        <div class="checkout-banner" id="checkoutMsg" role="status" aria-live="polite" hidden></div>
+
+        <div id="cartEmpty" class="cart-empty" hidden>
+          <i class="bi bi-bag"></i>
+          <p data-i18n="account.empty">Korpa je prazna.</p>
+          <a class="btn btn-accent" href="katalog.html"><i class="bi bi-grid"></i> <span data-i18n="account.emptyCta">Pogledaj katalog</span></a>
+        </div>
+
+        <div id="cartFull" hidden>
+          <div class="cart-list" id="cartList"></div>
+
+          <div class="cart-summary">
+            <div class="summary-row">
+              <span class="summary-label" data-i18n="account.total">Ukupno za placanje</span>
+              <span class="summary-total" id="cartTotal">0</span>
+            </div>
+            <button class="btn btn-accent btn-checkout" id="checkoutBtn" type="button">
+              <i class="bi bi-bag-check"></i> <span data-i18n="account.checkout">Zavrsi kupovinu</span>
+            </button>
+          </div>
+        </div>
+
+        <h2 class="block-title block-title-mt"><i class="bi bi-clock-history"></i> <span data-i18n="account.history">Istorija porudzbina</span></h2>
+        <p class="section-note" data-i18n="account.historySub">Tvoje prethodne porudzbine.</p>
+
+        <p id="ordersEmpty" class="orders-empty" data-i18n="account.historyEmpty" hidden>Jos nema porudzbina.</p>
+        <div class="orders-list" id="ordersList"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-12 col-lg-4 footer-brand">
+          <img src="assets/img/logo.png" alt="NITE-TRACKER" class="footer-logo">
+          <p class="footer-tagline" data-i18n="footer.tagline">Prodavnica drustvenih igara za one koji najradije igraju do kasno u noc.</p>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h3 class="footer-h" data-i18n="footer.quick">Brzi linkovi</h3>
+          <ul class="footer-links">
+            <li><a href="index.html" data-i18n="nav.home">Pocetna</a></li>
+            <li><a href="katalog.html" data-i18n="nav.catalog">Katalog igara</a></li>
+            <li><a href="galerija.html" data-i18n="nav.gallery">Galerija</a></li>
+            <li><a href="o-nama.html" data-i18n="nav.about">O nama</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h3 class="footer-h" data-i18n="footer.hours">Radno vreme</h3>
+          <p class="footer-line" data-i18n="footer.hours.val">Pon-Sub: 10-22h<br>Ned: 14-20h</p>
+        </div>
+        <div class="col-12 col-lg-3">
+          <h3 class="footer-h" data-i18n="footer.contact">Kontakt</h3>
+          <p class="footer-line">
+            <i class="bi bi-geo-alt"></i> <span data-i18n="footer.addr">Bulevar kralja Aleksandra 73, Beograd</span><br>
+            <i class="bi bi-telephone"></i> +381 11 123 456<br>
+            <i class="bi bi-envelope"></i> info@nite-tracker.rs
+          </p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="footer-rule">
+      <p class="footer-copy" data-i18n="footer.copyright">Copyright 2026, Nikola Zivkovic i Teodora Joksimovic, Odsek za softversko inzenjerstvo Elektrotehnickog fakulteta Univerziteta u Beogradu</p>
+    </div>
+  </footer>
+
+</body>
+</html>

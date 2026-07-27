@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NITE-TRACKER | O nama</title>
+  <meta name="description" content="O prodavnici NITE-TRACKER - ko smo, nasa misija, nagrade i kako da nas posetite.">
+  <link rel="icon" type="image/png" href="assets/img/logo-mark.png">
+  <link href="assets/vendor/fonts/fonts.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/vendor/leaflet/leaflet.css" rel="stylesheet">
+  <script src="assets/vendor/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/vendor/leaflet/leaflet.js"></script>
+  <script src="assets/js/about.js"></script>
+</head>
+<body data-title-key="doc.title.about">
+
+  <a href="#main" class="skip-link" data-i18n="a11y.skip">Preskoci na sadrzaj</a>
+
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg" id="mainNav" aria-label="Glavni meni">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="assets/img/logo-mark.png" alt="" class="brand-mark">
+          <span class="brand-text">
+            <span class="brand-name">NITE-TRACKER</span>
+            <span class="brand-sub">Boardgames Entertainment</span>
+          </span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                aria-controls="navMenu" aria-expanded="false" aria-label="Otvori meni">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav mx-lg-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html" data-i18n="nav.home">Pocetna</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="galerija.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span data-i18n="nav.gallery">Galerija</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="galerija.html#prodavnica" data-i18n="nav.gallery.store">Slike prodavnice</a></li>
+                <li><a class="dropdown-item" href="galerija.html#igre" data-i18n="nav.gallery.games">Fotografije igara</a></li>
+                <li><a class="dropdown-item" href="galerija.html#video" data-i18n="nav.gallery.video">Video galerija</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="katalog.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span data-i18n="nav.catalog">Katalog igara</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="katalog.html" data-i18n="nav.catalog.all">Sve igre</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="katalog.html?grupa=porodicne" data-i18n="nav.catalog.family">Porodicne</a></li>
+                <li><a class="dropdown-item" href="katalog.html?grupa=strateske" data-i18n="nav.catalog.strategy">Strateske</a></li>
+                <li><a class="dropdown-item" href="katalog.html?grupa=zabavne" data-i18n="nav.catalog.party">Zabavne</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="nalog.html" data-i18n="nav.account">Moj nalog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="o-nama.html" data-i18n="nav.about">O nama</a>
+            </li>
+          </ul>
+
+          <div class="nav-actions">
+            <form class="search-form" id="searchForm" role="search">
+              <i class="bi bi-search"></i>
+              <input type="search" id="searchInput" class="search-input" data-i18n-ph="search.placeholder" placeholder="Pretrazi igre..." aria-label="Pretraga igara">
+            </form>
+
+            <div class="lang-switch" id="langSwitch" role="group" aria-label="Izbor jezika">
+              <button type="button" class="lang-btn" data-lang="sr">SR</button>
+              <button type="button" class="lang-btn" data-lang="en">EN</button>
+            </div>
+
+            <a href="nalog.html" class="cart-link" aria-label="Korpa">
+              <i class="bi bi-bag"></i>
+              <span class="cart-count" id="cartCount">0</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <nav class="breadcrumb-bar" aria-label="Putanja">
+      <div class="container">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="index.html" data-i18n="bc.home">Pocetna</a></li>
+          <li class="breadcrumb-item active" aria-current="page" data-i18n="nav.about">O nama</li>
+        </ol>
+      </div>
+    </nav>
+
+    <section class="section section-about">
+      <div class="container">
+        <div class="catalog-head about-intro">
+          <span class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="nav.about">O nama</span></span>
+          <h1 class="section-title" data-i18n="nav.about">O nama</h1>
+          <p class="about-lead" data-i18n="about.lead">Prodavnica drustvenih igara za one koji najradije igraju do duboko u noc.</p>
+        </div>
+
+        <div class="row g-4 g-lg-5 align-items-center about-block">
+          <div class="col-12 col-lg-7">
+            <h2 class="block-title" data-i18n="about.descTitle">Ko smo mi</h2>
+            <p class="about-text" data-i18n="about.desc1">NITE-TRACKER je nastao iz ljubavi prema dugim partijama ispunjenim smehom.</p>
+            <p class="about-text" data-i18n="about.desc2">Kod nas ces naci i proverene klasike i sveze naslove, ali i savet iskusnih igraca.</p>
+          </div>
+          <div class="col-12 col-lg-5">
+            <div class="facts-card">
+              <div class="fact">
+                <span class="fact-num" id="factGames">9</span>
+                <span class="fact-label" data-i18n="about.factGames">igara u ponudi</span>
+              </div>
+              <div class="fact">
+                <span class="fact-num">2017.</span>
+                <span class="fact-label" data-i18n="about.factSince">godina osnivanja</span>
+              </div>
+              <div class="fact">
+                <span class="fact-num">3</span>
+                <span class="fact-label" data-i18n="about.factGroups">grupe igara</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-block">
+          <h2 class="block-title" data-i18n="about.historyTitle">Nas put</h2>
+          <ol class="timeline">
+            <li class="tl-item"><span class="tl-year" data-i18n="about.h1y">2017.</span><p class="tl-text" data-i18n="about.h1t">Osnovan klub Boardgames.</p></li>
+            <li class="tl-item"><span class="tl-year" data-i18n="about.h2y">2019.</span><p class="tl-text" data-i18n="about.h2t">Otvorili smo prvu prodavnicu.</p></li>
+            <li class="tl-item"><span class="tl-year" data-i18n="about.h3y">2021.</span><p class="tl-text" data-i18n="about.h3t">Pokrenut onlajn katalog i dostava.</p></li>
+            <li class="tl-item"><span class="tl-year" data-i18n="about.h4y">2024.</span><p class="tl-text" data-i18n="about.h4t">Uredili smo salu za turnire.</p></li>
+          </ol>
+        </div>
+
+        <div class="about-block">
+          <h2 class="block-title" data-i18n="about.missionTitle">Nasa misija</h2>
+          <p class="about-mission" data-i18n="about.mission">Verujemo da najlepse uspomene nastaju oko stola.</p>
+          <div class="row g-3 g-md-4">
+            <div class="col-12 col-md-4"><div class="value-card"><span class="value-ic ac-green"><i class="bi bi-people"></i></span><h3 class="value-title" data-i18n="about.v1t">Zajednica</h3><p class="value-text" data-i18n="about.v1d">Okupljamo igrace kroz turnire i veceri igara.</p></div></div>
+            <div class="col-12 col-md-4"><div class="value-card"><span class="value-ic ac-blue"><i class="bi bi-hand-thumbs-up"></i></span><h3 class="value-title" data-i18n="about.v2t">Pravi izbor</h3><p class="value-text" data-i18n="about.v2d">Iskren savet i pazljivo biran katalog.</p></div></div>
+            <div class="col-12 col-md-4"><div class="value-card"><span class="value-ic ac-orange"><i class="bi bi-controller"></i></span><h3 class="value-title" data-i18n="about.v3t">Za svakoga</h3><p class="value-text" data-i18n="about.v3d">Igre za porodicu, drustvo i strateske duele.</p></div></div>
+          </div>
+        </div>
+
+        <div class="about-block">
+          <h2 class="block-title" data-i18n="about.awardsTitle">Nagrade i priznanja</h2>
+          <div class="row g-3 g-md-4">
+            <div class="col-12 col-md-4"><div class="award-card"><span class="award-ic"><i class="bi bi-trophy"></i></span><div><h3 class="award-title" data-i18n="about.a1t">Najbolja specijalizovana prodavnica</h3><p class="award-sub" data-i18n="about.a1s">Tabletop izbor Srbije · 2023.</p></div></div></div>
+            <div class="col-12 col-md-4"><div class="award-card"><span class="award-ic"><i class="bi bi-award"></i></span><div><h3 class="award-title" data-i18n="about.a2t">Izbor zajednice</h3><p class="award-sub" data-i18n="about.a2s">Lokalna board game scena · 2024.</p></div></div></div>
+            <div class="col-12 col-md-4"><div class="award-card"><span class="award-ic"><i class="bi bi-stars"></i></span><div><h3 class="award-title" data-i18n="about.a3t">Najbolji program turnira</h3><p class="award-sub" data-i18n="about.a3s">Beogradski festival igara · 2025.</p></div></div></div>
+          </div>
+        </div>
+
+        <div class="about-block">
+          <h2 class="block-title" data-i18n="about.infoTitle">Poseti nas</h2>
+          <div class="row g-3 g-md-4">
+            <div class="col-12 col-md-4"><div class="info-card"><span class="info-ic"><i class="bi bi-clock"></i></span><h3 class="info-title" data-i18n="footer.hours">Radno vreme</h3><p class="info-text" data-i18n="footer.hours.val">Pon-Sub: 10-22h<br>Ned: 14-20h</p></div></div>
+            <div class="col-12 col-md-4"><div class="info-card"><span class="info-ic"><i class="bi bi-telephone"></i></span><h3 class="info-title" data-i18n="footer.contact">Kontakt</h3><p class="info-text"><a href="tel:+38111123456">+381 11 123 456</a><br><a href="mailto:info@nite-tracker.rs">info@nite-tracker.rs</a></p></div></div>
+            <div class="col-12 col-md-4"><div class="info-card"><span class="info-ic"><i class="bi bi-geo-alt"></i></span><h3 class="info-title" data-i18n="about.addrTitle">Adresa</h3><p class="info-text" data-i18n="footer.addr">Bulevar kralja Aleksandra 73, Beograd</p></div></div>
+          </div>
+        </div>
+
+        <div class="about-block">
+          <h2 class="block-title" data-i18n="about.mapTitle">Gde se nalazimo</h2>
+          <div class="map-wrap">
+            <div id="map" role="application" aria-label="Mapa lokacije prodavnice"></div>
+          </div>
+          <div class="map-actions">
+            <span class="map-addr"><i class="bi bi-geo-alt-fill"></i> <span data-i18n="footer.addr">Bulevar kralja Aleksandra 73, Beograd</span></span>
+            <a class="btn btn-ghost" id="directionsBtn" href="https://www.google.com/maps/search/?api=1&query=44.8053,20.4793" target="_blank" rel="noopener">
+              <i class="bi bi-box-arrow-up-right"></i> <span data-i18n="about.directions">Otvori u Google mapama</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-12 col-lg-4 footer-brand">
+          <img src="assets/img/logo.png" alt="NITE-TRACKER" class="footer-logo">
+          <p class="footer-tagline" data-i18n="footer.tagline">Prodavnica drustvenih igara za one koji najradije igraju do kasno u noc.</p>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h3 class="footer-h" data-i18n="footer.quick">Brzi linkovi</h3>
+          <ul class="footer-links">
+            <li><a href="index.html" data-i18n="nav.home">Pocetna</a></li>
+            <li><a href="katalog.html" data-i18n="nav.catalog">Katalog igara</a></li>
+            <li><a href="galerija.html" data-i18n="nav.gallery">Galerija</a></li>
+            <li><a href="o-nama.html" data-i18n="nav.about">O nama</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h3 class="footer-h" data-i18n="footer.hours">Radno vreme</h3>
+          <p class="footer-line" data-i18n="footer.hours.val">Pon-Sub: 10-22h<br>Ned: 14-20h</p>
+        </div>
+        <div class="col-12 col-lg-3">
+          <h3 class="footer-h" data-i18n="footer.contact">Kontakt</h3>
+          <p class="footer-line">
+            <i class="bi bi-geo-alt"></i> <span data-i18n="footer.addr">Bulevar kralja Aleksandra 73, Beograd</span><br>
+            <i class="bi bi-telephone"></i> +381 11 123 456<br>
+            <i class="bi bi-envelope"></i> info@nite-tracker.rs
+          </p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="footer-rule">
+      <p class="footer-copy" data-i18n="footer.copyright">Copyright 2026, Nikola Zivkovic i Teodora Joksimovic, Odsek za softversko inzenjerstvo Elektrotehnickog fakulteta Univerziteta u Beogradu</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NITE-TRACKER | Scythe</title>
+  <meta name="description" content="Detalji drustvene igre Scythe u prodavnici NITE-TRACKER - opis, broj igraca, uzrast, trajanje, cena, ocene i komentari.">
+  <link rel="icon" type="image/png" href="assets/img/logo-mark.png">
+  <link href="assets/vendor/fonts/fonts.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <script src="assets/vendor/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/igra.js"></script>
+</head>
+
+<body data-title-key="doc.title.game" data-game-id="scythe">
+
+  <a href="#main" class="skip-link" data-i18n="a11y.skip">Preskoci na sadrzaj</a>
+
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg" id="mainNav" aria-label="Glavni meni">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="assets/img/logo-mark.png" alt="" class="brand-mark">
+          <span class="brand-text">
+            <span class="brand-name">NITE-TRACKER</span>
+            <span class="brand-sub">Boardgames Entertainment</span>
+          </span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                aria-controls="navMenu" aria-expanded="false" aria-label="Otvori meni">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav mx-lg-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html" data-i18n="nav.home">Pocetna</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="galerija.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span data-i18n="nav.gallery">Galerija</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="galerija.html#prodavnica" data-i18n="nav.gallery.store">Slike prodavnice</a></li>
+                <li><a class="dropdown-item" href="galerija.html#igre" data-i18n="nav.gallery.games">Fotografije igara</a></li>
+                <li><a class="dropdown-item" href="galerija.html#video" data-i18n="nav.gallery.video">Video galerija</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" aria-current="page" href="katalog.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span data-i18n="nav.catalog">Katalog igara</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="katalog.html" data-i18n="nav.catalog.all">Sve igre</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="katalog.html?grupa=porodicne" data-i18n="nav.catalog.family">Porodicne</a></li>
+                <li><a class="dropdown-item" href="katalog.html?grupa=strateske" data-i18n="nav.catalog.strategy">Strateske</a></li>
+                <li><a class="dropdown-item" href="katalog.html?grupa=zabavne" data-i18n="nav.catalog.party">Zabavne</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="nalog.html" data-i18n="nav.account">Moj nalog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="o-nama.html" data-i18n="nav.about">O nama</a>
+            </li>
+          </ul>
+
+          <div class="nav-actions">
+            <form class="search-form" id="searchForm" role="search">
+              <i class="bi bi-search"></i>
+              <input type="search" id="searchInput" class="search-input" data-i18n-ph="search.placeholder" placeholder="Pretrazi igre..." aria-label="Pretraga igara">
+            </form>
+
+            <div class="lang-switch" id="langSwitch" role="group" aria-label="Izbor jezika">
+              <button type="button" class="lang-btn" data-lang="sr">SR</button>
+              <button type="button" class="lang-btn" data-lang="en">EN</button>
+            </div>
+
+            <a href="nalog.html" class="cart-link" aria-label="Korpa">
+              <i class="bi bi-bag"></i>
+              <span class="cart-count" id="cartCount">0</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <nav class="breadcrumb-bar" aria-label="Putanja">
+      <div class="container">
+        <ol class="breadcrumb mb-0" id="breadcrumb"></ol>
+      </div>
+    </nav>
+
+    <section class="section section-game">
+      <div class="container">
+
+        <div id="gameNotFound" class="game-notfound" hidden>
+          <i class="bi bi-controller"></i>
+          <p data-i18n="game.notFound">Igra nije pronadjena.</p>
+          <a class="btn btn-accent" href="katalog.html"><i class="bi bi-arrow-left"></i> <span data-i18n="game.back">Nazad na katalog</span></a>
+        </div>
+
+        <div id="gameDetail" class="game-detail" hidden>
+          <div class="row g-4 g-lg-5">
+            <div class="col-12 col-lg-6">
+              <div class="game-hero-cover" id="gameCover">
+                <span class="cover-title" id="gameCoverTitle"></span>
+                <span class="img-note"><i class="bi bi-image"></i> <span data-i18n="game.imgNote">Mesto za sliku igre</span></span>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <span class="grp-tag" id="gameGroupTag"></span>
+              <h1 class="game-h1" id="gameName"></h1>
+
+              <div class="game-rating-summary">
+                <span class="stars-lg" id="gameStars"></span>
+                <span class="rating-big" id="gameAvg"></span>
+                <span class="rating-meta" id="gameRatingMeta"></span>
+              </div>
+
+              <p class="game-desc" id="gameDesc"></p>
+
+              <ul class="spec-list">
+                <li><span class="spec-k" data-i18n="game.players">Broj igraca</span><span class="spec-v" id="specPlayers"></span></li>
+                <li><span class="spec-k" data-i18n="game.age">Preporuceni uzrast</span><span class="spec-v" id="specAge"></span></li>
+                <li><span class="spec-k" data-i18n="game.time">Prosecno trajanje</span><span class="spec-v" id="specTime"></span></li>
+                <li><span class="spec-k" data-i18n="game.group">Grupa</span><span class="spec-v" id="specGroup"></span></li>
+              </ul>
+
+              <div class="game-buy">
+                <span class="price-lg" id="gamePrice"></span>
+                <button class="btn btn-accent btn-buy" type="button" id="addToCartBtn">
+                  <i class="bi bi-bag-plus"></i> <span data-i18n="card.add">Dodaj u korpu</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-4 g-lg-5 game-feedback">
+            <div class="col-12 col-lg-5">
+              <h2 class="block-title" data-i18n="game.ratingTitle">Ocene i utisci</h2>
+              <div class="rate-box">
+                <span class="rate-label" data-i18n="game.yourRating">Tvoja ocena</span>
+                <div class="rate-stars" id="rateStars" role="group" aria-label="Oceni igru"></div>
+                <p class="rate-hint" id="rateHint" data-i18n="game.rateHint">Klikni na zvezdice da ocenis.</p>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-7">
+              <h2 class="block-title"><span data-i18n="game.comments">Komentari</span> <span class="count-pill" id="commentCount">0</span></h2>
+              <form class="comment-form" id="commentForm" novalidate>
+                <input type="text" id="commentName" class="comment-name" data-i18n-ph="game.commentName" placeholder="Ime (opciono)" aria-label="Ime">
+                <textarea id="commentText" class="comment-text" rows="3" data-i18n-ph="game.commentText" placeholder="Napisi svoj utisak..." aria-label="Komentar"></textarea>
+                <div class="comment-actions">
+                  <button type="submit" class="btn btn-accent"><span data-i18n="game.commentSubmit">Posalji komentar</span></button>
+                  <span class="comment-msg" id="commentMsg" role="status" aria-live="polite"></span>
+                </div>
+              </form>
+              <ul class="comment-list" id="commentList"></ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-12 col-lg-4 footer-brand">
+          <img src="assets/img/logo.png" alt="NITE-TRACKER" class="footer-logo">
+          <p class="footer-tagline" data-i18n="footer.tagline">Prodavnica drustvenih igara za one koji najradije igraju do kasno u noc.</p>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h3 class="footer-h" data-i18n="footer.quick">Brzi linkovi</h3>
+          <ul class="footer-links">
+            <li><a href="index.html" data-i18n="nav.home">Pocetna</a></li>
+            <li><a href="katalog.html" data-i18n="nav.catalog">Katalog igara</a></li>
+            <li><a href="galerija.html" data-i18n="nav.gallery">Galerija</a></li>
+            <li><a href="o-nama.html" data-i18n="nav.about">O nama</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h3 class="footer-h" data-i18n="footer.hours">Radno vreme</h3>
+          <p class="footer-line" data-i18n="footer.hours.val">Pon-Sub: 10-22h<br>Ned: 14-20h</p>
+        </div>
+        <div class="col-12 col-lg-3">
+          <h3 class="footer-h" data-i18n="footer.contact">Kontakt</h3>
+          <p class="footer-line">
+            <i class="bi bi-geo-alt"></i> <span data-i18n="footer.addr">Bulevar kralja Aleksandra 73, Beograd</span><br>
+            <i class="bi bi-telephone"></i> +381 11 123 456<br>
+            <i class="bi bi-envelope"></i> info@nite-tracker.rs
+          </p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="footer-rule">
+      <p class="footer-copy" data-i18n="footer.copyright">Copyright 2026, Nikola Zivkovic i Teodora Joksimovic, Odsek za softversko inzenjerstvo Elektrotehnickog fakulteta Univerziteta u Beogradu</p>
+    </div>
+  </footer>
+
+</body>
+</html>
